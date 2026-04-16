@@ -420,7 +420,7 @@ const images = {
     --radius-xl: 32px;
     --radius-lg: 24px;
     --radius-md: 18px;
-    --content: 1180px;
+    --content: 1260px;
   }
 
   * {
@@ -466,8 +466,9 @@ const images = {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 24px;
-    padding: 18px 22px;
+    flex-wrap: wrap;
+    gap: 18px 32px;
+    padding: 18px 28px;
     background: rgba(251, 246, 239, 0.76);
     border: 1px solid rgba(98, 75, 56, 0.08);
     border-radius: 999px;
@@ -479,6 +480,8 @@ const images = {
     display: inline-flex;
     flex-direction: column;
     gap: 2px;
+    flex: 0 0 auto;
+    min-width: max-content;
   }
 
   .brand-kicker,
@@ -507,9 +510,16 @@ const images = {
 
   .main-nav {
     display: flex;
-    gap: 22px;
+    flex: 1 1 auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 10px 24px;
     font-size: 0.95rem;
     color: var(--muted);
+  }
+
+  .main-nav a {
+    white-space: nowrap;
   }
 
   .hero,
@@ -522,15 +532,15 @@ const images = {
 
   .hero {
     display: grid;
-    grid-template-columns: 1.1fr 0.9fr;
-    gap: 34px;
+    grid-template-columns: minmax(0, 1fr) minmax(500px, 0.94fr);
+    gap: 46px;
     align-items: center;
     min-height: calc(100vh - 140px);
-    padding: 34px 0 8px;
+    padding: 40px 0 12px;
   }
 
   .hero-copy {
-    max-width: 610px;
+    max-width: 590px;
   }
 
   h1 {
@@ -622,7 +632,8 @@ const images = {
 
   .hero-visual {
     display: grid;
-    gap: 18px;
+    gap: 20px;
+    align-items: stretch;
   }
 
   .photo-card,
@@ -642,9 +653,13 @@ const images = {
   }
 
   .photo-card-main {
-    min-height: 680px;
+    min-height: 720px;
     border-radius: var(--radius-xl);
     overflow: hidden;
+  }
+
+  .photo-card-main img {
+    object-position: center 42%;
   }
 
   .hero-aside {
@@ -920,11 +935,8 @@ const images = {
       padding-top: 12px;
     }
 
-    .site-header,
     .hero-aside,
-    .main-nav,
-    .univers-cards,
-    .site-footer {
+    .univers-cards {
       grid-template-columns: 1fr;
     }
 
@@ -934,10 +946,16 @@ const images = {
       justify-content: stretch;
     }
 
+    .site-header {
+      border-radius: 28px;
+      padding: 18px 20px;
+    }
+
     .main-nav,
     .footer-links {
       flex-wrap: wrap;
       gap: 14px;
+      justify-content: flex-start;
     }
 
     h1 {
