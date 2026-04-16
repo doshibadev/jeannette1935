@@ -39,6 +39,18 @@ const nouveautes = [
   "Les sweats, t-shirts et créations en petites séries qui donnent envie de revenir voir les nouveautés.",
 ];
 
+const horaires = [
+  { day: "Mardi au vendredi", hours: "11h - 18h" },
+  { day: "Samedi", hours: "11h - 17h" },
+  { day: "Dimanche & lundi", hours: "Fermé" },
+];
+
+const vieBoutique = [
+  "Des nouveautés et petites séries qui évoluent au fil des arrivages.",
+  "Une sélection d’idées cadeaux à retrouver en boutique selon la saison et les envies du moment.",
+  "Des aperçus réguliers sur Instagram pour suivre la vie de la maison depuis Dunkerque.",
+];
+
 const contact = {
   address: "21 rue du Lion d'Or, 59140 Dunkerque",
   phone: "06 10 71 10 30",
@@ -46,7 +58,6 @@ const contact = {
   instagram: "@chezjeannette_1935",
   maps: "https://www.google.com/maps/search/?api=1&query=21+rue+du+Lion+d'Or,+59140+Dunkerque",
   instagramUrl: "https://www.instagram.com/chezjeannette_1935/",
-  facebookUrl: "https://www.facebook.com/",
 };
 
 const images = {
@@ -113,8 +124,8 @@ const images = {
             </div>
             <ul class="hero-notes" aria-label="Informations clés">
               <li>Accessoires textiles, bijoux, cadeaux et créations artisanales</li>
-              <li>Boutique indépendante installée au cœur de Dunkerque</li>
-              <li>Instagram, Facebook et boutique en ligne pour suivre les nouveautés</li>
+              <li>Boutique indépendante au 21 rue du Lion d'Or, en plein cœur de Dunkerque</li>
+              <li>Arrivages réguliers, idées cadeaux et sélections du moment à retrouver en boutique</li>
             </ul>
           </div>
 
@@ -129,8 +140,8 @@ const images = {
               <div class="note-card">
                 <span class="note-label">Depuis 1935</span>
                 <p>
-                  Une adresse inspirante pour celles et ceux qui aiment les
-                  pièces choisies, les matières naturelles et les belles idées à offrir.
+                  Une adresse dunkerquoise où l’on vient découvrir les nouveautés,
+                  chercher une belle idée cadeau ou retrouver une pièce choisie avec soin.
                 </p>
               </div>
               <div class="swatch-card">
@@ -150,6 +161,36 @@ const images = {
             artisanal, le choix des matières et l’envie de composer un univers
             doux et vivant sont au centre de tout.
           </p>
+        </section>
+
+        <section class="local-proof">
+          <div class="proof-card">
+            <p class="proof-title">À retrouver en boutique cette semaine</p>
+            <p>
+              Des idées cadeaux choisies avec soin, des accessoires textiles en
+              petites séries et des nouveautés qui changent au rythme des
+              saisons, des matières et des inspirations du moment.
+            </p>
+          </div>
+          <div class="proof-card">
+            <p class="proof-title">Une vraie adresse à Dunkerque</p>
+            <p>
+              La boutique vous accueille au <strong>21 rue du Lion d'Or</strong>,
+              à quelques pas du centre, pour découvrir les sélections sur place
+              et prendre le temps de choisir.
+            </p>
+          </div>
+          <div class="proof-card schedule-card">
+            <p class="proof-title">Horaires</p>
+            <div class="hours-list">
+              {horaires.map((item) => (
+                <div class="hours-row">
+                  <span>{item.day}</span>
+                  <strong>{item.hours}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
         </section>
 
         <section class="story section-grid" id="maison">
@@ -256,6 +297,11 @@ const images = {
                 cadeau, pour trouver un accessoire qui change tout ou simplement
                 pour prendre le temps d’aimer les belles choses.
               </p>
+              <p>
+                Les sélections évoluent régulièrement, ce qui donne à chaque
+                passage en boutique une raison de regarder de nouveau, de revenir
+                plus tard ou de suivre la maison au fil des arrivages.
+              </p>
             </div>
           </div>
         </section>
@@ -276,6 +322,12 @@ const images = {
             </div>
 
             <div class="social-panel">
+              <p class="mini-title">La vie de la boutique</p>
+              <div class="micro-updates">
+                {vieBoutique.map((item) => (
+                  <p>{item}</p>
+                ))}
+              </div>
               <p>
                 Pour suivre les sélections du moment, les nouvelles pièces et
                 l’ambiance de la boutique, Instagram reste le plus beau carnet de
@@ -285,8 +337,8 @@ const images = {
                 <a class="button primary" href={contact.instagramUrl} target="_blank" rel="noreferrer">
                   Suivre sur Instagram
                 </a>
-                <a class="button secondary" href={contact.facebookUrl} target="_blank" rel="noreferrer">
-                  Voir Facebook
+                <a class="button secondary" href="#visiter">
+                  Préparer ma visite
                 </a>
               </div>
             </div>
@@ -316,9 +368,16 @@ const images = {
               <p class="visit-label">Instagram</p>
               <p><a href={contact.instagramUrl} target="_blank" rel="noreferrer">{contact.instagram}</a></p>
             </div>
+            <div>
+              <p class="visit-label">Horaires</p>
+              <p>Mardi au vendredi 11h - 18h<br />Samedi 11h - 17h</p>
+            </div>
             <div class="visit-actions">
               <a class="button primary" href={contact.maps} target="_blank" rel="noreferrer">
                 Itinéraire
+              </a>
+              <a class="button secondary" href={`tel:${contact.phone.replace(/\s/g, "")}`}>
+                Appeler
               </a>
               <a class="button ghost" href={`mailto:${contact.email}`}>
                 Contact
@@ -335,7 +394,7 @@ const images = {
         </div>
         <div class="footer-links">
           <a href={contact.instagramUrl} target="_blank" rel="noreferrer">Instagram</a>
-          <a href={contact.facebookUrl} target="_blank" rel="noreferrer">Facebook</a>
+          <a href={contact.maps} target="_blank" rel="noreferrer">Itinéraire</a>
           <a href={`mailto:${contact.email}`}>Contact</a>
         </div>
         <p class="footer-note">Photographies éditoriales issues de Pexels.</p>
@@ -456,6 +515,7 @@ const images = {
   .hero,
   .section-grid,
   .intro-strip,
+  .local-proof,
   .site-footer {
     margin-top: 28px;
   }
@@ -570,6 +630,7 @@ const images = {
   .note-card,
   .swatch-card,
   .intro-strip,
+  .proof-card,
   .universe-card,
   .news-item,
   .social-panel,
@@ -619,6 +680,55 @@ const images = {
   .intro-strip {
     padding: 28px 30px;
     border-radius: var(--radius-lg);
+  }
+
+  .local-proof {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .proof-card {
+    padding: 24px;
+    border-radius: var(--radius-lg);
+  }
+
+  .proof-title {
+    margin: 0 0 10px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .proof-card p {
+    margin: 0;
+    line-height: 1.75;
+    color: var(--muted);
+  }
+
+  .schedule-card {
+    background:
+      linear-gradient(180deg, rgba(255, 250, 244, 0.8), rgba(239, 228, 214, 0.88)),
+      linear-gradient(130deg, rgba(57, 81, 67, 0.08), rgba(184, 107, 77, 0.06));
+  }
+
+  .hours-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .hours-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(72, 56, 44, 0.1);
+    color: var(--muted);
+  }
+
+  .hours-row:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
   }
 
   .section-grid {
@@ -676,7 +786,8 @@ const images = {
 
   .editorial-stack,
   .commitments,
-  .news-list {
+  .news-list,
+  .micro-updates {
     display: grid;
     gap: 18px;
   }
@@ -708,6 +819,13 @@ const images = {
     font-size: 1rem;
   }
 
+  .micro-updates p {
+    margin: 0;
+    font-size: 0.98rem;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
   .commitment {
     display: grid;
     grid-template-columns: 18px 1fr;
@@ -730,7 +848,7 @@ const images = {
 
   .visit-card {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(5, minmax(0, 1fr));
     gap: 22px;
     padding: 28px;
     border-radius: var(--radius-xl);
@@ -770,6 +888,7 @@ const images = {
 
   @media (max-width: 1080px) {
     .hero,
+    .local-proof,
     .univers-layout,
     .selection-content,
     .boutique-layout,
